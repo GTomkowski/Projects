@@ -1,0 +1,52 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 16px;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+}
+
+h3 {
+	font-size: 34px;
+}
+
+label {
+	padding: 20px;
+	font-size: 28px;
+}
+
+.to-do-list {
+	position: absolute;
+	top: 300px; /* why using percentages doesn't work here? */
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 200px;
+	width: 600px;
+	border: 3px solid black;
+}
+
+
+.column {
+    display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.row {
+	display: flex;
+	justify-content: space-evenly;
+}
+input {
+	width: 60%;
+}
+
+button {
+	width: 30%;
+	background-color: transparent;
+	outline: none;
+}
