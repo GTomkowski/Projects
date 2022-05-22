@@ -1,7 +1,5 @@
 const addBtn = document.querySelector('.todo-btn-style')
-
 const list = document.querySelector('ul')
-const storage = []
 function add() {
 	const inputVal = document.querySelector('input').value /* pobieram wartosc z inputa do zmiennej inputVal */
 	const listElement = document.createElement('li') /* tworze element li */
@@ -11,21 +9,27 @@ function add() {
 	document.querySelector('input').value = null /* czyszcze wartosc inputa */
 	const button1 = document.createElement('button') /* tworze przycisk i przypisuje go do zmiennej button1*/
 	const button2 = document.createElement('button') /* tworze przycisk i przypisuje go do zmiennej button2*/
-	button1.classList.add('list-btn-style') 
+	button1.classList.add('list-btn-style')
 	button1.textContent = 'X'
 	button2.classList.add('list-btn-style')
 	button2.textContent = 'EDIT'
-
 	list.appendChild(listElement)
 	listElement.append(paragraph, button1, button2)
-	storage.push(listElement)
-	return storage;
 }
 
 function remove() {
 	const listElement = document.querySelector('li')
+
 	list.removeChild(listElement)
 }
 
+function edit() {}
 
 addBtn.addEventListener('click', add)
+document.addEventListener('click', e => {
+	if (e.target.innerHTML === 'X') {
+		remove()
+	} else if (e.target.innerHtml === 'EDIT') {
+		edit()
+	}
+})
