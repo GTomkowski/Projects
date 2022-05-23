@@ -5,7 +5,7 @@ function add() {
 	const listElement = document.createElement('li') /* tworze element li */
 	const paragraph = document.createElement('p') /* tworze paragraf */
 	listElement.classList.add('d-f') /* dodaje klase d-f do paragrafu */
-	paragraph.innerHTML = inputVal /* dopisuje tresc ze zmiennej inputval do html paragrafu */
+	paragraph.textContent = inputVal /* dopisuje tresc ze zmiennej inputval do html paragrafu */
 	document.querySelector('input').value = null /* czyszcze wartosc inputa */
 	const button1 = document.createElement('button') /* tworze przycisk i przypisuje go do zmiennej button1*/
 	const button2 = document.createElement('button') /* tworze przycisk i przypisuje go do zmiennej button2*/
@@ -25,11 +25,21 @@ function remove() {
 
 function edit() {
 	const inputPrompt = window.prompt('Change the task:')
+	const para = document.querySelector('p')
+	para.textContent = inputPrompt;
+
+	/* co robi ta funkcja?
+	zmienia zawartosc node paragrafu pobranego do zmiennej para na zapisany w formie string ze zmiennej inputPrompt */
+
 }
+
+/* czego potrzebuje JS?
+widziec paragraf, czyli przypisac go do zmiennej */
+
 
 addBtn.addEventListener('click', add)
 document.addEventListener('click', e => {
-	switch (e.target.innerHTML) {
+	switch (e.target.textContent ) {
 		case 'X':
 			remove()
 			break
