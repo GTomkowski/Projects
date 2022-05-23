@@ -23,13 +23,18 @@ function remove() {
 	list.removeChild(listElement)
 }
 
-function edit() {}
+function edit() {
+	const inputPrompt = window.prompt('Change the task:')
+}
 
 addBtn.addEventListener('click', add)
 document.addEventListener('click', e => {
-	if (e.target.innerHTML === 'X') {
-		remove()
-	} else if (e.target.innerHtml === 'EDIT') {
-		edit()
+	switch (e.target.innerHTML) {
+		case 'X':
+			remove()
+			break
+		case 'EDIT':
+			edit()
+			break
 	}
 })
