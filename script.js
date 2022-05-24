@@ -19,19 +19,14 @@ function add() {
 	listElement.append(paragraph, button1, button2)
 }
 
-function remove() {
-	const listElement = document.querySelector('li')
+function remove(e) {
 
-	list.removeChild(listElement)
+	list.removeChild(e.target.parentElement)
 }
 
-function edit() {
+function edit(e) {
 	const inputPrompt = window.prompt('Change the task:')
-	const para = document.querySelector('p')
-	para.textContent = inputPrompt
-
-	/* co robi ta funkcja?
-	zmienia zawartosc node paragrafu pobranego do zmiennej para na zapisany w formie string ze zmiennej inputPrompt */
+	e.target.parentNode.querySelector('p').textContent = inputPrompt;
 }
 
 /* czego potrzebuje JS?
@@ -41,10 +36,10 @@ addBtn.addEventListener('click', add)
 document.addEventListener('click', e => {
 	switch (e.target.id) {
 		case 'X':
-			remove()
+			remove(e)
 			break
 		case 'EDIT':
-			edit()
+			edit(e)
 			break
 	}
 })
