@@ -27,6 +27,13 @@ function edit(e) {
 	e.target.parentNode.querySelector('p').textContent = inputPrompt
 }
 
+document.addEventListener('keydown', e => {
+	switch (e.key) {
+		case 'Enter':
+			add()
+	}
+})
+
 document.addEventListener('click', e => {
 	switch (e.target.id) {
 		case 'X':
@@ -39,5 +46,4 @@ document.addEventListener('click', e => {
 			add()
 			break
 	}
-	
 })
