@@ -1,4 +1,3 @@
-const addBtn = document.querySelector('.todo-btn-style')
 const list = document.querySelector('ul')
 function add() {
 	const inputVal = document.querySelector('input').value /* pobieram wartosc z inputa do zmiennej inputVal */
@@ -20,19 +19,14 @@ function add() {
 }
 
 function remove(e) {
-
 	list.removeChild(e.target.parentElement)
 }
 
 function edit(e) {
 	const inputPrompt = window.prompt('Change the task:')
-	e.target.parentNode.querySelector('p').textContent = inputPrompt;
+	e.target.parentNode.querySelector('p').textContent = inputPrompt
 }
 
-/* czego potrzebuje JS?
-widziec paragraf, czyli przypisac go do zmiennej */
-
-addBtn.addEventListener('click', add)
 document.addEventListener('click', e => {
 	switch (e.target.id) {
 		case 'X':
@@ -41,5 +35,9 @@ document.addEventListener('click', e => {
 		case 'EDIT':
 			edit(e)
 			break
+		case 'OK':
+			add()
+			break
 	}
+	
 })
